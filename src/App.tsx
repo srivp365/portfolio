@@ -2,8 +2,9 @@ import { Routes, Route, useLocation } from "react-router-dom";
 import { AnimatePresence, motion } from "framer-motion";
 import Home from "./components/pages/Home";
 import Projects from "./components/pages/Projects";
-import StaggeredMenu from "./components/StaggeredMenu";
 import toast, { Toaster } from "react-hot-toast";
+import StaggeredMenufrom from "./components/StaggeredMenu";
+import type, { StaggeredMenuSocialItem } from "./components/StaggeredMenu";
 
 const handleCopy = async () => {
   try {
@@ -70,10 +71,11 @@ const menuItems = [
   { label: "Projects", ariaLabel: "View my projects", link: "/projects" },
 ];
 
-const socialItems = [
+const socialItems: StaggeredMenuSocialItem[] = [
   {
     label: "Email",
-    onClick: async () => {
+    onClick: (e) => {
+      if (e) e.preventDefault();
       handleCopy();
     },
   },
@@ -99,7 +101,7 @@ export default function App() {
         openMenuButtonColor="#fff"
         changeMenuColorOnOpen={true}
         colors={["#64B6AC", "#D64045"]}
-        logoUrl="/personal_icon.svg"
+
         accentColor="#F0B67F"
         isFixed={true}
         onMenuOpen={() => console.log("Menu opened")}
