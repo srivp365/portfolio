@@ -11,9 +11,6 @@ import {
 } from "lucide-react";
 import SplitText from "../SplitText";
 
-// ---------------------------------------------------------------------------
-// Data
-// ---------------------------------------------------------------------------
 const PROJECTS = [
   {
     id: "01",
@@ -29,7 +26,7 @@ const PROJECTS = [
   },
 ];
 
-function ProjectArt({ project, large }) {
+function ProjectArt({ project, large }: any) {
   const [IconA] = project.icons;
   return (
     <div
@@ -128,7 +125,7 @@ function ProjectArt({ project, large }) {
 // ---------------------------------------------------------------------------
 export default function Projects() {
   const [hovered, setHovered] = useState(PROJECTS[0].id);
-  const [active, setActive] = useState(null);
+  const [active, setActive] = useState<string | null>(null);
 
   const displayedId = active ?? hovered;
   const displayed = PROJECTS.find((p) => p.id === displayedId) || PROJECTS[0];
