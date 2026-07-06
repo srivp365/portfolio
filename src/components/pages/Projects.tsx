@@ -22,7 +22,7 @@ const PROJECTS = [
       "A web application that allows users to analyze and visualize stock data using the yfinance library. Users can input stock tickers, view historical data, and generate various charts to aid in investment decisions.",
     ],
     github_url: "https://github.com/SrivP/stock_sentiment_analysis",
-    live_demo: "/",
+    live_demo: "https://stock-sentiment-analysis-rho.vercel.app/",
   },
 ];
 
