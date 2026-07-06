@@ -30,7 +30,7 @@ export default function Home() {
             <p className="text-gray-400 text-sm md:text-base leading-relaxed drop-shadow-md">
               I am a simpleton from Canada 🍁, who is interested in things, like
               tech, productivity and other shenanigans. Hop on over to projects
-              to check out some of my work!
+              to check out some of my work, or check out the sidebar for my contact links and resume ❤️!
             </p>
           </div>
         </div>
