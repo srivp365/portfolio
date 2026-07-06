@@ -271,7 +271,7 @@ export default function Projects() {
               exit={{ opacity: 0 }}
               transition={{ duration: 0.25 }}
               style={{
-                maxWidth: "50%",
+                maxWidth: "900",
                 width: "100%",
                 margin: "0 auto",
                 padding: "clamp(40px, 8vh, 88px) clamp(20px, 5vw, 24px) 100px",
@@ -401,7 +401,14 @@ export default function Projects() {
                   </p>
                 ))}
 
-                <div style={{ display: "flex", gap: 12, marginTop: 24 }}>
+                <div
+                  style={{
+                    display: "flex",
+                    gap: 12,
+                    marginTop: 24,
+                    flexWrap: "wrap",
+                  }}
+                >
                   <button
                     className="sk80-btn"
                     onClick={() => {
