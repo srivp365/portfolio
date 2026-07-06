@@ -3,8 +3,8 @@ import { AnimatePresence, motion } from "framer-motion";
 import Home from "./components/pages/Home";
 import Projects from "./components/pages/Projects";
 import toast, { Toaster } from "react-hot-toast";
-import StaggeredMenufrom from "./components/StaggeredMenu";
-import type, { StaggeredMenuSocialItem } from "./components/StaggeredMenu";
+import StaggeredMenu from "./components/StaggeredMenu";
+import type { StaggeredMenuSocialItem } from "./components/StaggeredMenu";
 
 const handleCopy = async () => {
   try {
