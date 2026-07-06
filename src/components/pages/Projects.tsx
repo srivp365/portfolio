@@ -272,7 +272,7 @@ export default function Projects() {
               transition={{ duration: 0.25 }}
               style={{
                 maxWidth: "900",
-                width: "100%",
+                width: "60%",
                 margin: "0 auto",
                 padding: "clamp(40px, 8vh, 88px) clamp(20px, 5vw, 24px) 100px",
                 overflow: "hidden",
