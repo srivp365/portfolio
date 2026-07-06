@@ -30,87 +30,45 @@ function ProjectArt({ project, large }: any) {
   const [IconA] = project.icons;
   return (
     <div
-      style={{
-        position: "relative",
-        width: "100%",
-        height: "100%",
-        borderRadius: large ? 28 : 20,
-        overflow: "hidden",
-        background: "#120F17",
-        border: "1px solid rgba(255,255,255,0.07)",
-      }}
+      className={`relative w-full h-full overflow-hidden bg-[#120F17] border border-white/[0.07] mt-2.5 ${
+        large ? "rounded-[28px]" : "rounded-[20px]"
+      }`}
     >
       <div
+        className="absolute inset-0"
         style={{
-          position: "absolute",
-          inset: 0,
           background: `radial-gradient(circle at 78% 108%, ${project.color} 0%, ${project.color}55 32%, transparent 62%)`,
         }}
       />
       <div
-        style={{
-          position: "relative",
-          zIndex: 1,
-          height: "100%",
-          display: "flex",
-          alignItems: "center",
-          gap: large ? 20 : 12,
-          padding: large ? "0 0 0 56px" : "0 0 0 22px",
-        }}
+        className={`relative z-10 h-full flex items-center ${
+          large ? "gap-5 pl-14" : "gap-3 pl-[22px]"
+        }`}
       >
         <div
-          style={{
-            width: large ? 96 : 56,
-            height: large ? 96 : 56,
-            borderRadius: large ? 22 : 14,
-            background: "rgba(255,255,255,0.07)",
-            border: "1px solid rgba(255,255,255,0.09)",
-            display: "flex",
-            alignItems: "center",
-            justifyContent: "center",
-            color: "rgba(255,255,255,0.55)",
-            flexShrink: 0,
-          }}
+          className={`flex items-center justify-center shrink-0 bg-white/[0.07] border border-white/[0.09] text-white/[0.55] ${
+            large ? "w-24 h-24 rounded-[22px]" : "w-14 h-14 rounded-[14px]"
+          }`}
         >
           <Settings size={large ? 40 : 24} strokeWidth={1.5} />
         </div>
+
         <div
-          style={{
-            width: large ? 96 : 56,
-            height: large ? 96 : 56,
-            borderRadius: large ? 22 : 14,
-            background:
-              "linear-gradient(135deg, #ff5f4d 0%, #ff9d3d 35%, #6b5bff 70%, #3ddc97 100%)",
-            display: "flex",
-            alignItems: "center",
-            justifyContent: "center",
-            color: "rgba(0,0,0,0.55)",
-            flexShrink: 0,
-            boxShadow: "0 8px 20px rgba(0,0,0,0.35)",
-          }}
+          className={`flex items-center justify-center shrink-0 text-black/[0.55] shadow-[0_8px_20px_rgba(0,0,0,0.35)] bg-[linear-gradient(135deg,#ff5f4d_0%,#ff9d3d_35%,#6b5bff_70%,#3ddc97_100%)] ${
+            large ? "w-24 h-24 rounded-[22px]" : "w-14 h-14 rounded-[14px]"
+          }`}
         >
           <IconA size={large ? 40 : 24} strokeWidth={1.75} />
         </div>
+
         <div
-          style={{
-            width: large ? 96 : 56,
-            height: large ? 96 : 56,
-            borderRadius: large ? 22 : 14,
-            background: "#0c0c0b",
-            border: "1px solid rgba(255,255,255,0.08)",
-            display: "flex",
-            alignItems: "center",
-            justifyContent: "center",
-            flexShrink: 0,
-            position: "relative",
-            overflow: "hidden",
-          }}
+          className={`flex items-center justify-center shrink-0 relative overflow-hidden bg-[#0c0c0b] border border-white/[0.08] ${
+            large ? "w-24 h-24 rounded-[22px]" : "w-14 h-14 rounded-[14px]"
+          }`}
         >
           <div
+            className="w-[70%] h-[70%] rounded-full"
             style={{
-              width: "70%",
-              height: "70%",
-              borderRadius: "50%",
               background: `radial-gradient(circle at 35% 30%, ${project.color}, #0c0c0b 75%)`,
             }}
           />
@@ -129,29 +87,12 @@ export default function Projects() {
   const activeProject = PROJECTS.find((p) => p.id === active) || null;
 
   return (
-    <div
-      style={{
-        position: "relative",
-        width: "100%",
-        minHeight: "100vh",
-        background: "#0b0b0a",
-        color: "#f2efe6",
-        fontFamily: "'Inter', -apple-system, BlinkMacSystemFont, sans-serif",
-        overflowX: "hidden",
-      }}
-    >
+    <div className="relative w-full min-h-screen bg-[#0b0b0a] text-[#f2efe6] font-['Inter',-apple-system,BlinkMacSystemFont,sans-serif] overflow-x-hidden">
       <style>{`
         @import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap');
-        .sk80 * { box-sizing: border-box; }
-        .sk80-row { transition: color .35s ease; cursor: pointer; }
-        .sk80-btn { transition: background .2s ease, border-color .2s ease; }
-        .sk80-btn:hover { background: rgba(255,255,255,0.06); border-color: rgba(255,255,255,0.35) !important; }
-        @media (prefers-reduced-motion: reduce) {
-          .sk80-row { transition: none !important; }
-        }
       `}</style>
 
-      <div className="sk80">
+      <div className="box-border">
         <AnimatePresence mode="popLayout">
           {!activeProject ? (
             <motion.div
@@ -160,7 +101,7 @@ export default function Projects() {
               animate={{ opacity: 1 }}
               exit={{ opacity: 0 }}
               transition={{ duration: 0.25 }}
-              style={{ minHeight: "100vh", width: "100%" }}
+              className="min-h-screen w-full"
               onMouseLeave={() => setHovered(active ?? PROJECTS[0].id)}
             >
               <motion.div
@@ -171,53 +112,18 @@ export default function Projects() {
                   damping: 30,
                   mass: 0.7,
                 }}
-                style={{
-                  position: "absolute",
-                  top: "clamp(24px, 8vh, 82px)",
-                  left: "clamp(20px, 6vw, 98px)",
-                  width: "clamp(240px, 26vw, 354px)",
-                  height: "clamp(150px, 16vw, 206px)",
-                }}
+                className="absolute top-[clamp(24px,8vh,82px)] left-[clamp(20px,6vw,98px)] w-[clamp(240px,26vw,354px)] h-[clamp(150px,16vw,206px)]"
               >
                 <ProjectArt project={displayed} large />
               </motion.div>
 
-              <div
-                style={{
-                  minHeight: "100vh",
-                  display: "flex",
-                  flexDirection: "column",
-                  justifyContent: "center",
-                  alignItems: "flex-end",
-                  padding: "0 clamp(20px, 6vw, 98px)",
-                }}
-              >
-                <div style={{ width: "100%", maxWidth: 420 }}>
-                  <div
-                    style={{
-                      display: "flex",
-                      alignItems: "center",
-                      gap: 14,
-                      marginBottom: 22,
-                    }}
-                  >
-                    <span
-                      style={{
-                        fontSize: 12,
-                        letterSpacing: "0.14em",
-                        color: "rgba(242,239,230,0.45)",
-                        whiteSpace: "nowrap",
-                      }}
-                    >
+              <div className="min-h-screen flex flex-col justify-center items-end px-[clamp(20px,6vw,98px)]">
+                <div className="w-full max-w-[420px]">
+                  <div className="flex items-center gap-[14px] mb-[22px]">
+                    <span className="text-xs tracking-[0.14em] text-[#f2efe6]/45 whitespace-nowrap">
                       MY PROJECTS
                     </span>
-                    <span
-                      style={{
-                        height: 1,
-                        flex: 1,
-                        background: "rgba(242,239,230,0.25)",
-                      }}
-                    />
+                    <span className="h-px flex-1 bg-[#f2efe6]/25" />
                   </div>
 
                   {PROJECTS.map((project) => {
@@ -225,18 +131,11 @@ export default function Projects() {
                     return (
                       <div
                         key={project.id}
-                        className="sk80-row"
                         onMouseEnter={() => setHovered(project.id)}
                         onClick={() => setActive(project.id)}
-                        style={{
-                          fontSize: "clamp(22px, 3vw, 32px)",
-                          fontWeight: 600,
-                          lineHeight: 1.5,
-                          color: isDisplayed
-                            ? "#f2efe6"
-                            : "rgba(242,239,230,0.32)",
-                          textAlign: "right",
-                        }}
+                        className={`cursor-pointer transition-colors duration-350 ease-in-out text-[clamp(22px,3vw,32px)] font-semibold leading-relaxed text-right motion-reduce:transition-none ${
+                          isDisplayed ? "text-[#f2efe6]" : "text-[#f2efe6]/30"
+                        }`}
                       >
                         <SplitText
                           text={project.title}
@@ -252,10 +151,7 @@ export default function Projects() {
                           textAlign="center"
                         />
                         {isDisplayed && (
-                          <span style={{ color: "rgba(242,239,230,0.32)" }}>
-                            {" "}
-                            ·
-                          </span>
+                          <span className="text-[#f2efe6]/30"> ·</span>
                         )}
                       </div>
                     );
@@ -270,30 +166,11 @@ export default function Projects() {
               animate={{ opacity: 1 }}
               exit={{ opacity: 0 }}
               transition={{ duration: 0.25 }}
-              style={{
-                maxWidth: "900",
-                width: "80%",
-                margin: "0 auto",
-                padding: "clamp(90px, 8vh, 88px) clamp(20px, 5vw, 24px) 100px",
-                overflow: "hidden",
-              }}
+              className="max-w-225 w-[80%] mx-auto pt-[clamp(90px,8vh,88px)] px-[clamp(20px,5vw,24px)] pb-25 overflow-hidden"
             >
               <button
-                className="sk80-btn"
                 onClick={() => setActive(null)}
-                style={{
-                  display: "inline-flex",
-                  alignItems: "center",
-                  gap: 8,
-                  background: "transparent",
-                  border: "1px solid rgba(255,255,255,0.18)",
-                  color: "rgba(242,239,230,0.75)",
-                  padding: "8px 14px",
-                  borderRadius: 999,
-                  fontSize: 13,
-                  cursor: "pointer",
-                  marginBottom: 28,
-                }}
+                className="inline-flex items-center gap-2 bg-transparent border border-white/[0.18] text-[#f2efe6]/75 px-3.5 py-2 rounded-full text-[13px] cursor-pointer mb-7 transition-all duration-200 hover:bg-white/[0.06] hover:border-white/[0.35]"
               >
                 <ArrowLeft size={14} /> All projects
               </button>
@@ -302,12 +179,7 @@ export default function Projects() {
                 initial={{ opacity: 0, y: 10 }}
                 animate={{ opacity: 1, y: 0 }}
                 transition={{ delay: 0.1, duration: 0.35 }}
-                style={{
-                  fontSize: "clamp(36px, 6vw, 64px)",
-                  fontWeight: 800,
-                  letterSpacing: "-0.02em",
-                  margin: "0 0 32px",
-                }}
+                className="text-[clamp(36px,6vw,64px)] font-extrabold tracking-tight mb-8"
               >
                 {activeProject.title}
               </motion.h1>
@@ -324,32 +196,10 @@ export default function Projects() {
                 dragElastic={0.16}
                 dragConstraints={{ left: -50, right: 50, top: -30, bottom: 30 }}
                 whileDrag={{ scale: 1.02, cursor: "grabbing" }}
-                style={{
-                  width: "100%",
-                  height: "clamp(260px, 42vw, 480px)",
-                  cursor: "grab",
-                  boxShadow: "0 40px 90px rgba(0,0,0,0.55)",
-                  position: "relative",
-                }}
+                className="w-full h-[clamp(260px,42vw,480px)] cursor-grab shadow-[0_40px_90px_rgba(0,0,0,0.55)] relative"
               >
                 <ProjectArt project={activeProject} large />
-                <div
-                  style={{
-                    position: "absolute",
-                    bottom: 14,
-                    left: 14,
-                    display: "flex",
-                    alignItems: "center",
-                    gap: 6,
-                    fontSize: 11,
-                    letterSpacing: "0.08em",
-                    textTransform: "uppercase",
-                    color: "rgba(242,239,230,0.85)",
-                    background: "rgba(11,11,10,0.55)",
-                    padding: "6px 10px",
-                    borderRadius: 999,
-                  }}
-                >
+                <div className="absolute bottom-3.5 left-3.5 flex items-center gap-1.5 text-[11px] tracking-[0.08em] uppercase text-[#f2efe6]/85 bg-[#0b0b0a]/[0.55] px-2.5 py-1.5 rounded-full">
                   <Move size={12} /> Drag me
                 </div>
               </motion.div>
@@ -359,95 +209,36 @@ export default function Projects() {
                 animate={{ opacity: 1, y: 0 }}
                 transition={{ delay: 0.15, duration: 0.35 }}
               >
-                <div
-                  style={{
-                    display: "flex",
-                    alignItems: "center",
-                    gap: 16,
-                    margin: "40px 0 22px",
-                  }}
-                >
-                  <h2
-                    style={{
-                      fontSize: "clamp(18px, 2.4vw, 22px)",
-                      fontWeight: 700,
-                      margin: 0,
-                      whiteSpace: "nowrap",
-                    }}
-                  >
+                <div className="flex items-center gap-4 mt-10 mb-[22px]">
+                  <h2 className="text-[clamp(18px,2.4vw,22px)] font-bold m-0 whitespace-nowrap">
                     {activeProject.tagline}
                   </h2>
-                  <span
-                    style={{
-                      height: 1,
-                      flex: 1,
-                      background: "rgba(242,239,230,0.25)",
-                    }}
-                  />
+                  <span className="h-px flex-1 bg-[#f2efe6]/25" />
                 </div>
 
                 {activeProject.description.map((para, i) => (
                   <p
                     key={i}
-                    style={{
-                      fontSize: 15,
-                      lineHeight: 1.75,
-                      color: "rgba(242,239,230,0.62)",
-                      margin: "0 0 16px",
-                      maxWidth: 640,
-                    }}
+                    className="text-[15px] leading-relaxed text-[#f2efe6]/60 mb-4 max-w-[640px]"
                   >
                     {para}
                   </p>
                 ))}
 
-                <div
-                  style={{
-                    display: "flex",
-                    gap: 12,
-                    marginTop: 24,
-                    flexWrap: "wrap",
-                  }}
-                >
+                <div className="flex gap-3 mt-6 flex-wrap">
                   <button
-                    className="sk80-btn"
                     onClick={() => {
                       window.location.href = activeProject.live_demo;
                     }}
-                    style={{
-                      display: "inline-flex",
-                      alignItems: "center",
-                      gap: 8,
-                      background: "#f2efe6",
-                      border: "1px solid #f2efe6",
-                      color: "#0b0b0a",
-                      padding: "10px 18px",
-                      borderRadius: 999,
-                      fontSize: 13,
-                      fontWeight: 600,
-                      cursor: "pointer",
-                    }}
+                    className="inline-flex items-center gap-2 bg-[#f2efe6] border border-[#f2efe6] text-[#0b0b0a] px-[18px] py-2.5 rounded-full text-[13px] font-semibold cursor-pointer transition-all duration-200 hover:bg-white/[0.06] hover:border-white/[0.35] hover:text-[#f2efe6]"
                   >
                     Live Preview <ExternalLink size={14} />
                   </button>
                   <button
-                    className="sk80-btn"
                     onClick={() => {
                       window.location.href = activeProject.github_url;
                     }}
-                    style={{
-                      display: "inline-flex",
-                      alignItems: "center",
-                      gap: 8,
-                      background: "transparent",
-                      border: "1px solid rgba(255,255,255,0.25)",
-                      color: "#f2efe6",
-                      padding: "10px 18px",
-                      borderRadius: 999,
-                      fontSize: 13,
-                      fontWeight: 600,
-                      cursor: "pointer",
-                    }}
+                    className="inline-flex items-center gap-2 bg-transparent border border-white/25 text-[#f2efe6] px-[18px] py-2.5 rounded-full text-[13px] font-semibold cursor-pointer transition-all duration-200 hover:bg-white/[0.06] hover:border-white/[0.35]"
                   >
                     See Source Code <BookOpen size={14} />
                   </button>
