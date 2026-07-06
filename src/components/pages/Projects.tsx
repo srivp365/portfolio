@@ -120,9 +120,6 @@ function ProjectArt({ project, large }: any) {
   );
 }
 
-// ---------------------------------------------------------------------------
-// Main component
-// ---------------------------------------------------------------------------
 export default function Projects() {
   const [hovered, setHovered] = useState(PROJECTS[0].id);
   const [active, setActive] = useState<string | null>(null);
