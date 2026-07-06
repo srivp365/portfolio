@@ -18,7 +18,7 @@ export default function Home() {
             <h2 className="text-gray-400 text-2xl md:text-4xl tracking-widest drop-shadow-2xl mb-1">
               Hi! I'm
             </h2>
-            <h1 className="text-white text-6xl md:text-8xl font-bold tracking-widest drop-shadow-2xl">
+            <h1 className="text-white text-5xl sm:text-6xl md:text-8xl font-bold tracking-wide md:tracking-widest drop-shadow-2xl break-words">
               Srivathsan
             </h1>
           </div>
