@@ -663,13 +663,12 @@ export const StaggeredMenu: React.FC<StaggeredMenuProps> = ({
   .sm-scope .staggered-menu-panel { width: 100%; left: 0; right: 0; } 
   .sm-scope .staggered-menu-wrapper[data-open] .sm-logo-img { filter: invert(100%); } 
   
-  /* Add these new rules to scale down the text and fix the number position */
   .sm-scope .sm-panel-item { 
     font-size: 2.5rem; 
     padding-right: 1.2em; 
   }
   .sm-scope .sm-panel-list[data-numbering] .sm-panel-item::after {
-    right: 0.2em; /* Brings the number closer to the text */
+    right: 0.2em; 
   }
 }
       `}</style>
