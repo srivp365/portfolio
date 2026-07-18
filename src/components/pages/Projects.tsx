@@ -10,6 +10,7 @@ import {
   ChartNoAxesCombined,
 } from "lucide-react";
 import SplitText from "../SplitText";
+import Discord_crm from "../../assets/discord-crm";
 
 const PROJECTS = [
   {
@@ -24,6 +25,19 @@ const PROJECTS = [
     github_url: "https://github.com/SrivP/stock_sentiment_analysis",
     live_demo: "https://stock-sentiment-analysis-rho.vercel.app/",
   },
+  {
+    id: "02",
+    title: "Discord-CRM",
+    tagline: "A CRM (Contact Relational Management) System built on top of Discord",
+    color: "#2f8fef",
+    icons: [Discord_crm, Layers],
+    description: [
+      "A Discord bot, built using pycord that allows users to manage people they talk to on a day to day basis. It features smart scheduling based on a tier list so you spend more time with the people you care about, without being too buggy 😉",
+    ],
+    github_url: "https://github.com/srivp365/discord-crm",
+    live_demo: "",
+  },
+
 ];
 
 function ProjectArt({ project, large }: any) {
