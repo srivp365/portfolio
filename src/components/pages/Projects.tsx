@@ -35,7 +35,7 @@ const PROJECTS = [
       "A Discord bot, built using pycord that allows users to manage people they talk to on a day to day basis. It features smart scheduling based on a tier list so you spend more time with the people you care about, without being too buggy 😉",
     ],
     github_url: "https://github.com/srivp365/discord-crm",
-    live_demo: "",
+    live_demo: "https://github.com/srivp365/discord-crm",
   },
 
 ];
