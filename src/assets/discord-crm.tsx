@@ -1,4 +1,3 @@
-import * as React from "react";
 
 const Discord_crm = ({ size = 24, strokeWidth = 2, ...props }) => (
   <svg
